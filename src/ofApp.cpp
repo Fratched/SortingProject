@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+	
 }
 
 //--------------------------------------------------------------
@@ -11,9 +12,13 @@ void ofApp::update(){
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+	void ofApp::draw(){
+		for (int i = 0; i < 5; i++) {
+			// Draw circle with random radius at a specific position
+			ofDrawCircle(100 + i * 150, ofGetHeight() / 2, radii[i]);
 
-}
+	
+	}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
