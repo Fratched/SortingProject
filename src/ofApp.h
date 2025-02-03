@@ -19,6 +19,7 @@ class ofApp : public ofBaseApp{
 		void mouseExited(int x, int y);
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
+		void generateRandomNumbers(); //Added This i had to declare it for it to be used in ofApp.cpp
 		void gotMessage(ofMessage msg);
 		std::vector<int> numbers;
 		//declaring vector to save the random numbers
