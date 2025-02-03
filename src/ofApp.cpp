@@ -4,7 +4,7 @@
 void ofApp::setup(){
 	 
 		generateRandomNumbers();
-	//Added Comments
+	//Added Comments	
 	
 }
 
@@ -46,6 +46,14 @@ void ofApp::keyPressed(int key){
 	 // if we press the r key generateRandomNumbers for the circles radius
 		if (key == 'r') {
 			generateRandomNumbers();
+		}
+		//Key for BubbleSorts
+		if (key == 'b') {
+			bubbleSort();
+		}
+		//Key for InsertionSort
+		if (key == 'i') {
+			insertionSort();
 		}
 	
 }
@@ -99,10 +107,32 @@ void ofApp::gotMessage(ofMessage msg){
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
-
+//--------------------------------------------------------------
 void ofApp::generateRandomNumbers() {
 	numbers.clear();
 	for (int i = 0; i < 5; i++) {
 		numbers.push_back(ofRandom(10, 100));
+	}
+}
+//--------------------------------------------------------------
+void ofApp::bubbleSort() {
+	for (int i = 0; i < numbers.size() - 1; i++) {
+		for (int j = 0; j < numbers.size() - i - 1; j++) {
+			if (numbers[j] > numbers[j + 1]) {
+				std::swap(numbers[j], numbers[j + 1]);
+			}
+		}
+	}
+}
+//--------------------------------------------------------------
+void ofApp::insertionSort() {
+	for (int i = 1; i < numbers.size(); i++) {
+		int key = numbers[i];
+		int j = i - 1;
+		while (j >= 0 && numbers[j] > key) {
+			numbers[j + 1] = numbers[j];
+			j--;
+		}
+		numbers[j + 1] = key;
 	}
 }

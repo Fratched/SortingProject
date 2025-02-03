@@ -21,6 +21,14 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void generateRandomNumbers(); //Added This i had to declare it for it to be used in ofApp.cpp
 		void gotMessage(ofMessage msg);
+		void bubbleSort(); //Bubble sort 
+		void insertionSort(); //insertionSort
+		std::vector<ofVec2f> positions;
 		std::vector<int> numbers;
+
+		bool sorting = false;
+		int currentStep = 0;
+		
+		
 		//declaring vector to save the random numbers
 };
