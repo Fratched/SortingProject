@@ -15,6 +15,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 	void ofApp::draw(){
+
 	
 			// Draw circle with random radius at a specific position
 		float x = 100; // Starting x position
@@ -209,8 +210,12 @@ int ofApp::partition(int low, int high) {
 //Kinda like shuffling a deck of cards keeping the same values
 void ofApp::shuffle() {
 	for (int i = numbers.size() - 1; i > 0; i--) {
+
+		
 		int j = ofRandom(0, i + 1);
+
 		std::swap(numbers[i], numbers[j]);
 	}
 }
 
+//final Push
