@@ -55,7 +55,17 @@ void ofApp::keyPressed(int key){
 		if (key == 'i') {
 			insertionSort();
 		}
-	
+		//key for mergeSort
+		if (key == 'm') {
+			mergeSort(0, numbers.size() - 1);
+		}
+		if (key == 'q') {
+			quickSort(0, numbers.size() - 1);
+		}
+
+		if (key == 's') {
+			shuffle();
+		}
 }
 
 //--------------------------------------------------------------
@@ -136,3 +146,71 @@ void ofApp::insertionSort() {
 		numbers[j + 1] = key;
 	}
 }
+//--------------------------------------------------------------
+
+void ofApp::mergeSort(int left, int right) {
+	if (left < right) {
+		int mid = left + (right - left) / 2;
+		mergeSort(left, mid);
+		mergeSort(mid + 1, right);
+		merge(left, mid, right);
+	}
+}
+//--------------------------------------------------------------
+void ofApp::merge(int left, int mid, int right) {
+	std::vector<int> temp(numbers.size());
+	int i = left, j = mid + 1, k = left;
+
+	while (i <= mid && j <= right) {
+		if (numbers[i] <= numbers[j]) {
+			temp[k++] = numbers[i++];
+		}
+		else {
+			temp[k++] = numbers[j++];
+		}
+	}
+
+	while (i <= mid) {
+		temp[k++] = numbers[i++];
+	}
+
+	while (j <= right) {
+		temp[k++] = numbers[j++];
+	}
+
+	for (i = left; i <= right; i++) {
+		numbers[i] = temp[i];
+	}
+}
+//--------------------------------------------------------------
+void ofApp::quickSort(int low, int high) {
+	if (low < high) {
+		int pi = partition(low, high);
+		quickSort(low, pi - 1);
+		quickSort(pi + 1, high);
+	}
+}
+//--------------------------------------------------------------
+int ofApp::partition(int low, int high) {
+	int pivot = numbers[high];
+	int i = low - 1;
+
+	for (int j = low; j < high; j++) {
+		if (numbers[j] < pivot) {
+			i++;
+			std::swap(numbers[i], numbers[j]);
+		}
+	}
+	std::swap(numbers[i + 1], numbers[high]);
+	return i + 1;
+}
+
+//--------------------------------------------------------------
+//Kinda like shuffling a deck of cards keeping the same values
+void ofApp::shuffle() {
+	for (int i = numbers.size() - 1; i > 0; i--) {
+		int j = ofRandom(0, i + 1);
+		std::swap(numbers[i], numbers[j]);
+	}
+}
+

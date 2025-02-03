@@ -22,7 +22,22 @@ class ofApp : public ofBaseApp{
 		void generateRandomNumbers(); //Added This i had to declare it for it to be used in ofApp.cpp
 		void gotMessage(ofMessage msg);
 		void bubbleSort(); //Bubble sort 
-		void insertionSort(); //insertionSort
+		void insertionSort(); //insertion Sort
+		void mergeSort(int left, int right);//merge Sort
+		//insertion Sort
+		void merge(int left, int mid, int right);
+		void quickSort(int low, int high);
+
+		int partition(int low, int high);
+
+		void shuffle();
+
+		void delay(int milliseconds);
+
+		
+
+		
+
 		std::vector<ofVec2f> positions;
 		std::vector<int> numbers;
 
