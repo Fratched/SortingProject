@@ -27,7 +27,7 @@ void ofApp::update(){
 
 		//put in a for loop
 		for (int i = 0; i < numbers.size(); i++) {
-			ofSetColor(0, 0, 190); 
+			ofSetColor(170, 255, 0); 
 			ofDrawCircle(x, y, numbers[i]); // Draw circle
 
 			ofSetColor(255, 255, 255); // White color for text
@@ -217,5 +217,7 @@ void ofApp::shuffle() {
 		std::swap(numbers[i], numbers[j]);
 	}
 }
+
+
 
 //final Push

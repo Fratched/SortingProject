@@ -27,7 +27,7 @@ class ofApp : public ofBaseApp{
 		//insertion Sort
 		void merge(int left, int mid, int right);
 		void quickSort(int low, int high);
-
+		void fib();
 		int partition(int low, int high);
 
 		void shuffle();
